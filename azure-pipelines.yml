@@ -38,4 +38,4 @@ steps:
       jdkArchitectureOption: "x64"
       publishJUnitResults: true
       testResultsFiles: "**/surefire-reports/TEST-*.xml"
-      goals: "package license:check $(MAVEN_OPTS)"
+      goals: "package $(MAVEN_OPTS)"
