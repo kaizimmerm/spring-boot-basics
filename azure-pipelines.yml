@@ -21,6 +21,12 @@ variables:
   MAVEN_OPTS: '-Dmaven.repo.local=$(MAVEN_CACHE_FOLDER)'
   
 steps:
+  - task: SonarCloudPrepare@1
+    displayName: 'Prepare analysis configuration'
+    inputs:
+      SonarCloud: 'SonarCloudKaizimmerm'
+      organization: 'kaizimmerm-github'
+      scannerMode: Other
   - task: Cache@2
     inputs:
       key: 'maven | "$(Agent.OS)" | **/pom.xml'
@@ -30,6 +36,7 @@ steps:
       path: $(MAVEN_CACHE_FOLDER)
     displayName: Cache Maven local repo
   - task: Maven@3
+    displayName: 'Maven build'
     inputs:
       mavenPomFile: "pom.xml"
       mavenOptions: "-Xmx3072m"
@@ -37,5 +44,12 @@ steps:
       jdkVersionOption: "1.11"
       jdkArchitectureOption: "x64"
       publishJUnitResults: true
+      sonarQubeRunAnalysis: true
+      sqMavenPluginVersionChoice: 'latest'
+      codeCoverageToolOption: 'JaCoCo'
       testResultsFiles: "**/surefire-reports/TEST-*.xml"
       goals: "package $(MAVEN_OPTS)"
+  - task: SonarCloudPublish@1
+    displayName: 'Publish results on build summary'
+    inputs:
+      pollingTimeoutSec: '300'
