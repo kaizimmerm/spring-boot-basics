@@ -17,7 +17,9 @@
 		"terminal.integrated.shell.linux": "/bin/bash",
 		"java.home": "/docker-java-home",
 		"java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
-		"maven.executable.path": "/usr/local/sdkman/candidates/maven/current/bin/mvn"
+		"java.format.settings.profile": "GoogleStyle",
+		"maven.executable.path": "/usr/local/sdkman/candidates/maven/current/bin/mvn",
+		"java.checkstyle.configuration": "/google_checks.xml"
 	},
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
@@ -25,7 +27,7 @@
 		"DavidAnson.vscode-markdownlint",
 		"ms-azuretools.vscode-docker",
 		"ms-azure-devops.azure-pipelines",
-		"sonarsource.sonarlint-vscode",
+		"shengchen.vscode-checkstyle",
 		"pivotal.vscode-spring-boot",
 		"vscjava.vscode-spring-boot-dashboard",
 		"GabrielBB.vscode-lombok"

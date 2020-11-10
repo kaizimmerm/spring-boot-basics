@@ -14,22 +14,22 @@ import org.springframework.test.web.servlet.MockMvc;
 @AutoConfigureMockMvc
 class ApplicationTests {
 
-	@Autowired
-	private MockMvc mvc;
+  @Autowired
+  private MockMvc mvc;
 
-	@Test
-	public void noParamGreetingShouldReturnDefaultMessage() throws Exception {
+  @Test
+  public void noParamGreetingShouldReturnDefaultMessage() throws Exception {
 
-		mvc.perform(get("/hello")).andDo(print()).andExpect(status().isOk())
-				.andExpect(jsonPath("$.message").value("Hello World!"));
-	}
+    mvc.perform(get("/hello")).andDo(print()).andExpect(status().isOk())
+        .andExpect(jsonPath("$.message").value("Hello World!"));
+  }
 
-	@Test
-	public void paramGreetingShouldReturnTailoredMessage() throws Exception {
+  @Test
+  public void paramGreetingShouldReturnTailoredMessage() throws Exception {
 
-		mvc.perform(get("/hello").param("name", "Cloud Developer")).andDo(print())
-				.andExpect(status().isOk())
-				.andExpect(jsonPath("$.message").value("Hello Cloud Developer!"));
-	}
+    mvc.perform(get("/hello").param("name", "Cloud Developer")).andDo(print())
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.message").value("Hello Cloud Developer!"));
+  }
 
 }
