@@ -10,7 +10,6 @@ public class DemoController {
 
   @GetMapping("/hello")
   public Hello hello(@RequestParam(value = "name", defaultValue = "World") String name) {
-    Object test = new Object();
-    return new Hello(String.format("Hello %s!", name, test));
+    return new Hello(String.format("Hello %s!", name));
   }
 }

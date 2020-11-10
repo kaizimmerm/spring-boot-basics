@@ -18,14 +18,14 @@ class ApplicationTests {
   private MockMvc mvc;
 
   @Test
-  public void noParamGreetingShouldReturnDefaultMessage() throws Exception {
+  void noParamGreetingShouldReturnDefaultMessage() throws Exception {
 
     mvc.perform(get("/hello")).andDo(print()).andExpect(status().isOk())
         .andExpect(jsonPath("$.message").value("Hello World!"));
   }
 
   @Test
-  public void paramGreetingShouldReturnTailoredMessage() throws Exception {
+  void paramGreetingShouldReturnTailoredMessage() throws Exception {
 
     mvc.perform(get("/hello").param("name", "Cloud Developer")).andDo(print())
         .andExpect(status().isOk())
