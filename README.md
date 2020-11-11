@@ -1,6 +1,6 @@
 # The Spring Boot Basics project
 
-[![Build Status](https://dev.azure.com/kaizimmerm/tutorials/_apis/build/status/kaizimmerm.spring-boot-basics?branchName=master)](https://dev.azure.com/kaizimmerm/tutorials/_build/latest?definitionId=2&branchName=master) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=kaizimmerm_spring-boot-basics&metric=alert_status)](https://sonarcloud.io/dashboard?id=kaizimmerm_spring-boot-basics)
+[![Build Status](https://dev.azure.com/kaizimmerm/tutorials/_apis/build/status/kaizimmerm.spring-boot-basics?branchName=master)](https://dev.azure.com/kaizimmerm/tutorials/_build/latest?definitionId=2&branchName=master) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=com.kaizimmerm%3Aspring-boot-basics&metric=alert_status)](https://sonarcloud.io/dashboard?id=com.kaizimmerm%3Aspring-boot-basics)
 
 
 
