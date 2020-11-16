@@ -21,7 +21,7 @@ class ApplicationTests {
   void noParamGreetingShouldReturnDefaultMessage() throws Exception {
 
     mvc.perform(get("/hello")).andDo(print()).andExpect(status().isOk())
-        .andExpect(jsonPath("$.message").value("Hello World"));
+        .andExpect(jsonPath("$.message").value("Hello World!"));
   }
 
   @Test
