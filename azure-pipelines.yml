@@ -25,7 +25,7 @@ steps:
     displayName: 'Prepare analysis configuration'
     inputs:
       SonarCloud: 'SonarCloudKaizimmerm'
-      organization: 'kaizimmerm-github'
+      organization: 'kaizimmerm'
       scannerMode: Other
   - task: Cache@2
     displayName: Cache Maven local repo
