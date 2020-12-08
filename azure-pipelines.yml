@@ -1,10 +1,17 @@
 #
-# Copyright (c) 2020 Microsoft and others.
+# Copyright © 2020 Kai Zimmermann (kaizimmerm.com)
 #
-# All rights reserved. This program and the accompanying materials
-# are made available under the terms of the Eclipse Public License v1.0
-# which accompanies this distribution, and is available at
-# http://www.eclipse.org/legal/epl-v10.html
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 #
 
 # Build your hawkBit Extensions and run tests with Apache Maven.
@@ -14,7 +21,7 @@
 # https://docs.microsoft.com/en-us/azure/devops/pipelines/release/caching?view=azure-devops#maven
 
 pool:
-  vmImage: "ubuntu-latest"
+  vmImage: "ubuntu-20.04"
 
 variables:
   MAVEN_CACHE_FOLDER: $(Pipeline.Workspace)/.m2/repository
@@ -31,9 +38,6 @@ steps:
     displayName: Cache Maven local repo
     inputs:
       key: 'maven | "$(Agent.OS)" | **/pom.xml'
-      restoreKeys: |
-        maven | "$(Agent.OS)"
-        maven
       path: $(MAVEN_CACHE_FOLDER)    
   - task: Maven@3
     displayName: 'Maven build'
@@ -46,7 +50,6 @@ steps:
       publishJUnitResults: true
       sonarQubeRunAnalysis: true
       sqMavenPluginVersionChoice: 'latest'
-      codeCoverageToolOption: 'JaCoCo'
       testResultsFiles: "**/surefire-reports/TEST-*.xml"
       goals: "package $(MAVEN_OPTS)"
   - task: SonarCloudPublish@1
