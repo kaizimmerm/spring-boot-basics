@@ -14,7 +14,18 @@
 		"java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
 		"java.format.settings.profile": "GoogleStyle",
 		"maven.executable.path": "/usr/local/sdkman/candidates/maven/current/bin/mvn",
-		"java.checkstyle.configuration": "/google_checks.xml"
+		"java.checkstyle.configuration": "/google_checks.xml",
+		"editor.tabSize": 2,
+		"java.format.comments.enabled": false,
+		// VSCode messes up license headers
+		"editor.formatOnSave": false,
+		// Allign with eclipse and Google style
+		"java.completion.importOrder": [
+			"com",
+			"java",
+			"javax",
+			"org"
+		]
 	},
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
